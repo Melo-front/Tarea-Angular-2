@@ -267,6 +267,248 @@ ng g guard auth
     </section>
 
 
+    <section class="Interpolar">
+        <div class="d-flex justify-content-center align-items-center bg-dark text-white">
+            <h2>Interpolar</h2>
+            </div>
+
+        <div class="d-flex flex-column flex-md-row">
+                <div>
+                    <h2 class="">¿Qué es Interpolar?</h1>
+                    <p>
+                    La interpolación es un mecanismo utilizado por Angular para mostrar datos dinámicos del componente dentro de una plantilla HTML.
+                    <br>
+                    Utiliza la sintaxis:
+                    </p>
+                    <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-html">
+{{ expresion }}
+                </code></pre></div>
+
+
+
+                <h2>Ejemplo básico</h2>
+
+              <h2>TypeScript:</h2>
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+nombre = "Juan";
+                </code></pre></div>
+
+                <h2>HTML:</h2>
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+&lt;h1&gt;Bienvenido {{ nombre }}&lt;/h1&gt;
+                </code></pre></div>
+                        
+                
+                <h2>Resultado:</h2>
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+Bienvenido Juan
+                </code></pre></div>
+
+                </div>
+            
+        <div class="col-12 col-md-6 mitad_derecha">
+            <h2>Interpolación con expresiones:</h2>
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+&lt;p&gt;{{ 10 + 5 }}&lt;/p&gt;
+                </code></pre></div>
+            <h2>Resultado:</h2>
+            <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+15
+                </code></pre></div>
+
+            <h2>Interpolación con métodos</h2>
+            <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+obtenerNombre(){
+  return "Carlos";
+}
+
+HTML
+
+{{ obtenerNombre() }}
+                </code></pre></div>
+
+                <H2>Casos de uso</H2>
+                    <ul>
+                        <li>Mostrar nombres de usuarios.</li>
+                        <li>Mostrar precios.</li>
+                        <li>Mostrar fechas.</li>
+                        <li>Mostrar estados de procesos.</li>
+                        <li>Mostrar resultados calculados.</li>
+                    </ul>
+
+        </div>
+
+        </div>
+
+    </section>
+
+    <section class="ngIf_y_ngFor">
+        <div class="d-flex justify-content-center align-items-center bg-dark text-white">
+            <h2>que es ngIf y ngFor/h2>
+            </div>
+
+       <div class="d-flex flex-column flex-md-row">
+
+    <div class="col-12 col-md-6 mitad_izquierda">
+
+        <h2>¿Qué es ngIf?</h2>
+
+        <p>
+            <strong>*ngIf</strong> es una directiva estructural que permite
+            mostrar o eliminar elementos del DOM dependiendo de una condición.
+        </p>
+
+        <h2>Sintaxis</h2>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-html">
+&lt;div *ngIf="condicion"&gt;
+  Contenido visible
+&lt;/div&gt;
+            </code></pre>
+        </div>
+
+        <h2>Ejemplo</h2>
+
+        <h3>TypeScript</h3>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-js">
+logueado = true;
+            </code></pre>
+        </div>
+
+        <h3>HTML</h3>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-html">
+&lt;p *ngIf="logueado"&gt;
+  Usuario autenticado
+&lt;/p&gt;
+            </code></pre>
+        </div>
+
+        <h3>Resultado</h3>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-text">
+Usuario autenticado
+            </code></pre>
+        </div>
+
+        <h2>Ejemplo con else</h2>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-html">
+&lt;div *ngIf="logueado; else acceso"&gt;
+  Bienvenido al sistema
+&lt;/div&gt;
+
+&lt;ng-template #acceso&gt;
+  Debe iniciar sesión
+&lt;/ng-template&gt;
+            </code></pre>
+        </div>
+
+        <h2>Ventajas</h2>
+
+        <ul>
+            <li>Mejora el rendimiento.</li>
+            <li>Oculta contenido innecesario.</li>
+            <li>Controla la visualización de elementos.</li>
+            <li>Elimina elementos del DOM cuando no son necesarios.</li>
+        </ul>
+
+    </div>
+
+    <div class="col-12 col-md-6 mitad_derecha">
+
+        <h2>¿Qué es ngFor?</h2>
+
+        <p>
+            <strong>*ngFor</strong> es una directiva estructural utilizada para
+            recorrer arreglos o colecciones y generar contenido HTML dinámicamente.
+        </p>
+
+        <h2>Sintaxis</h2>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-html">
+&lt;li *ngFor="let item of lista"&gt;
+  {{ item }}
+&lt;/li&gt;
+            </code></pre>
+        </div>
+
+        <h2>Ejemplo</h2>
+
+        <h3>TypeScript</h3>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-js">
+usuarios = [
+  'Juan',
+  'Ana',
+  'Pedro'
+];
+            </code></pre>
+        </div>
+
+        <h3>HTML</h3>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-html">
+&lt;ul&gt;
+  &lt;li *ngFor="let usuario of usuarios"&gt;
+    {{ usuario }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+            </code></pre>
+        </div>
+
+        <h3>Resultado</h3>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-text">
+Juan
+Ana
+Pedro
+            </code></pre>
+        </div>
+
+        <h2>Obtener índice</h2>
+
+        <div class="container consola-js">
+            <pre class="m-0 p-0"><code class="language-html">
+&lt;li *ngFor="let usuario of usuarios; let i = index"&gt;
+  {{ i }} - {{ usuario }}
+&lt;/li&gt;
+            </code></pre>
+        </div>
+
+        <h2>Aplicaciones comunes</h2>
+
+        <ul>
+            <li>Listas de usuarios.</li>
+            <li>Tablas de productos.</li>
+            <li>Menús dinámicos.</li>
+            <li>Catálogos.</li>
+            <li>Resultados de búsqueda.</li>
+        </ul>
+
+    </div>
+
+</div>
+
+    </section>
+
     <footer class="pt-3">
 <ul class="bg-dark text-white py-2 ">
     <li><a href="https://angular.dev">Documentación Oficial de Angular</a></li>
