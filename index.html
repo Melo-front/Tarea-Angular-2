@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet"/>
+    <title>Tarea Angular 2</title>
+</head>
+<body>
+
+
+    <section class="Login">
+        <div class="d-flex justify-content-center align-items-center bg-dark text-white">
+            <h2>Login en Angular</h2>
+            </div>
+
+        <div class="d-flex flex-column flex-md-row">
+                <div>
+                    <h2 class="">Hacer el Login en Angular</h1>
+                    <p>
+                        Un login es el proceso mediante el cual un usuario ingresa sus credenciales (usuario y contraseña) para acceder a una aplicación. En Angular, generalmente se crea un formulario que captura estos datos, los envía a un servidor mediante un servicio HTTP y recibe una respuesta indicando si la autenticación fue exitosa.
+                           
+                        <h3>Pasos básicos para implementar un login:</h3>
+                        <ol>
+                            <li>Crear un componente de login.</li>
+                            <li>Crear un formulario con los campos de usuario y contraseña.</li>
+                            <li>Validar los datos ingresados.</li>
+                            <li>Enviar las credenciales al backend mediante un servicio.</li>
+                            <li>Recibir un token de autenticación (JWT, por ejemplo).</li>
+                            <li>Guardar el token en el navegador.</li>
+                            <li>Redirigir al usuario a una vista autorizada.</li>
+                        </ol>
+                        
+                    </p>
+                <h2>Ejemplo</h2>
+
+                <form (ngSubmit)="login()">
+                <input type="text" [(ngModel)]="usuario" name="usuario" placeholder="Usuario">
+                
+                <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña">
+                
+                <button type="submit">Ingresar</button>
+                </form>
+                        
+                </div>
+        <div class="col-12 col-md-6 mitad_derecha">
+            <h2>Ejemplo de formulario</h2>
+
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+&lt;form (ngSubmit)="login()"&gt;
+  &lt;input type="text" [(ngModel)]="usuario" name="usuario" placeholder="Usuario"&gt;
+  
+  &lt;input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña"&gt;
+  
+  &lt;button type="submit"&gt;Ingresar&lt;/button&gt;
+&lt;/form&gt;
+                </code></pre></div>
+
+
+        </div>
+
+
+
+    </section>
+
+    <section class="Vistas">
+        <div class="d-flex justify-content-center align-items-center bg-dark text-white">
+            <h2>Vistas Protegidas</h2>
+            </div>
+
+        <div class="d-flex flex-column flex-md-row">
+                <div>
+                    <h2 class="">¿Qué son las Vistas Protegidas?</h1>
+                    <p>
+                        Las vistas protegidas son componentes o páginas cuyo acceso está restringido únicamente a usuarios autenticados o con permisos específicos.
+                        <br>
+                        En aplicaciones reales existen páginas que no deben estar disponibles para todos los usuarios, como paneles administrativos, reportes o configuraciones.
+                        
+                    </p>
+                <h2>Ejemplos de vistas protegidas</h2>
+
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Vista</th>
+                            <th>Usuario normal</th>
+                            <th>Administrador</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Inicio</td>
+                            <td>Sí</td>
+                            <td>Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Perfil</td>
+                            <td>Sí</td>
+                            <td>Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Inventario</td>
+                            <td>No</td>
+                            <td>Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Gestión de usuarios</td>
+                            <td>No</td>
+                            <td>Sí</td>
+                        </tr>
+                        <tr>
+                            <td>Reportes financieros</td>
+                            <td>No</td>
+                            <td>Sí</td>
+                        </tr>
+                    </tbody>
+                </table>
+                        
+                </div>
+        <div class="col-12 col-md-6 mitad_derecha">
+            <h2>¿Por qué son importantes?</h2>
+            <p>
+                Seguridad
+                <br>
+                Evitan accesos no autorizados.
+                <br>
+                Protección de datos
+                <br>
+                Restringen información sensible.
+                <br>
+                Control de permisos
+                <br>
+                Permiten diferenciar roles.
+                <br>
+                Implementación
+                <br>
+                Las vistas protegidas se configuran en el archivo de rutas:</p>
+            
+            
+            
+            <h2>Ejemplo</h2>
+
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+{
+ path: 'dashboard',
+ component: DashboardComponent,
+ canActivate: [authGuard]
+}
+                </code></pre></div>
+
+
+        </div>
+
+
+
+    </section>
+
+    <section class="Guards">
+        <div class="d-flex justify-content-center align-items-center bg-dark text-white">
+            <h2>Guards en Angular</h2>
+            </div>
+
+        <div class="d-flex flex-column flex-md-row">
+                <div>
+                    <h2 class="">¿Qué son los Guards en Angular?</h1>
+                    <p>
+                     Los Guards son mecanismos que Angular ejecuta antes de permitir la navegación entre rutas. Su función es controlar quién puede acceder a determinadas páginas.
+
+                    <h2>¿Por qué son necesarios?</h2>
+
+                    Ocultar un menú no impide que un usuario escriba directamente una URL en el navegador. Los Guards validan los permisos antes de cargar la ruta.
+                        
+                    </p>
+                <h2>Ejemplos de vistas protegidas</h2>
+
+                <table border="1">
+    <thead>
+        <tr>
+            <th>Guard</th>
+            <th>Función</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>CanActivate</td>
+            <td>Controla el acceso a una ruta.</td>
+        </tr>
+        <tr>
+            <td>CanActivateChild</td>
+            <td>Protege rutas hijas.</td>
+        </tr>
+        <tr>
+            <td>CanDeactivate</td>
+            <td>Evita salir de una página.</td>
+        </tr>
+        <tr>
+            <td>Resolve</td>
+            <td>Obtiene datos antes de cargar una vista.</td>
+        </tr>
+        <tr>
+            <td>CanMatch</td>
+            <td>Determina si una ruta puede ser utilizada.</td>
+        </tr>
+    </tbody>
+</table>
+
+            <h2>Beneficios</h2>
+            <ul>
+                <li>Mayor seguridad.</li>
+                <li>Control de roles.</li>
+                <li>Protección de rutas sensibles.</li>
+                <li>Mejor organización del código.</li>
+            </ul>
+                        
+                </div>
+        <div class="col-12 col-md-6 mitad_derecha">
+            <h2>CanActivate</h2>
+            <p>
+                
+            Es el más utilizado para proteger rutas</p>
+            
+
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+import { CanActivateFn } from '@angular/router';
+
+export const authGuard: CanActivateFn = () => {
+  return localStorage.getItem('token') != null;
+};
+                </code></pre></div>
+
+
+                <h2>Uso del Guard</h2>
+            <p>Si existe un token, Angular permitirá el acceso; de lo contrario, bloqueará la navegación.</p>
+            
+
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-js">
+{
+  path: 'dashboard',
+  component: DashboardComponent,
+  canActivate: [authGuard]
+}
+                </code></pre></div>
+
+            <h2>Uso del Guard</h2>
+            
+            
+
+                <div class="container consola-js">
+                        <pre class="m-0 p-0"><code class="language-bash">
+ng generate guard auth
+
+o 
+
+ng g guard auth
+                </code></pre></div>
+
+        </div>
+
+
+
+    </section>
+
+
+    <footer class="pt-3">
+<ul class="bg-dark text-white py-2 ">
+    <li><a href="https://angular.dev">Documentación Oficial de Angular</a></li>
+    <li><a href="https://angular.dev/guide/forms">Angular Forms</a></li>
+    <li><a href="https://angular.dev/guide/routing">Angular Routing</a></li>
+    <li><a href="https://angular.dev/guide/routing/route-guards">Angular Route Guards</a></li>
+    <li><a href="https://angular.dev/guide/templates/interpolation">Angular Interpolation</a></li>
+    <li><a href="https://angular.dev/guide/directives">Angular Directives</a></li>
+    <li><a href="https://www.typescriptlang.org/docs/">TypeScript Documentation</a></li>
+    <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript">MDN Web Docs - JavaScript</a></li>
+</ul>
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+    
+</body>
+</html>
